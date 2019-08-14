@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.david.dao.ExaminationQuestion2Dao">
+
+    <resultMap id="eq2" type="com.david.bean.ExaminationQuestion2">
+        <id property="iid" column="iid"></id>
+        <result property="id" column="id"></result>
+        <result property="question" column="question"></result>
+        <result property="answer" column="answer"></result>
+        <result property="item1" column="item1"></result>
+        <result property="item2" column="item2"></result>
+        <result property="item3" column="item3"></result>
+        <result property="item4" column="item4"></result>
+        <result property="explains" column="explains"></result>
+        <result property="url" column="url"></result>
+        <result property="wrongnumber" column="wrongnumber"></result>
+    </resultMap>
+
+    <!-- 4.单个查 -->
+    <select id="findByIdEQ2" resultMap="eq2">
+        select * from examination_question2 where id = #{id}
+    </select>
+
+    <!-- 5.全查 -->
+    <select id="findAllEQ2" resultMap="eq2">
+        select * from examination_question2
+    </select>
+
+</mapper>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.david.dao.UsersDao">
+
+    <resultMap id="u" type="com.david.bean.Users">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="info" column="info"></result>
+    </resultMap>
+
+    <resultMap id="tq1" type="com.david.bean.TestedQuestion1">
+        <id column="id" property="id"></id>
+        <result column="userid" property="userid"></result>
+        <result column="questionid" property="questionid"></result>
+    </resultMap>
+
+    <resultMap id="tq2" type="com.david.bean.TestedQuestion2">
+        <id column="id" property="id"></id>
+        <result column="userid" property="userid"></result>
+        <result column="questionid" property="questionid"></result>
+    </resultMap>
+
+    <resultMap id="tq3" type="com.david.bean.TestedQuestion3">
+        <id column="id" property="id"></id>
+        <result column="userid" property="userid"></result>
+        <result column="questionid" property="questionid"></result>
+    </resultMap>
+
+    <resultMap id="tq4" type="com.david.bean.TestedQuestion4">
+        <id column="id" property="id"></id>
+        <result column="userid" property="userid"></result>
+        <result column="questionid" property="questionid"></result>
+    </resultMap>
+
+    <!-- 5.全查 -->
+    <select id="findAll" resultMap="u">
+        select * from users
+    </select>
+
+    <!-- 6.根据用户名称查询所有已做题目的编号1 -->
+    <select id="findAllTestedQuestion1" resultMap="tq1">
+        select tq.id, tq.userid, tq.questionid from users u, tested_question1 tq where u.id = tq.userid and u.name = #{username}
+    </select>
+
+    <!-- 7.根据用户名称查询所有已做题目的编号1 -->
+    <select id="findAllTestedQuestion2" resultMap="tq2">
+        select tq.id, tq.userid, tq.questionid from users u, tested_question2 tq where u.id = tq.userid and u.name = #{username}
+    </select>
+
+    <!-- 8.根据用户名称查询所有已做题目的编号1 -->
+    <select id="findAllTestedQuestion3" resultMap="tq3">
+        select tq.id, tq.userid, tq.questionid from users u, tested_question3 tq where u.id = tq.userid and u.name = #{username}
+    </select>
+
+    <!-- 9.根据用户名称查询所有已做题目的编号1 -->
+    <select id="findAllTestedQuestion4" resultMap="tq4">
+        select tq.id, tq.userid, tq.questionid from users u, tested_question4 tq where u.id = tq.userid and u.name = #{username}
+    </select>
+    
+</mapper>
